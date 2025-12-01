@@ -1,0 +1,23 @@
+package com.schat.signature.config;
+
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import java.security.Security;
+
+@Configuration
+@ComponentScan(basePackages = "com.schat.signature")
+public class SignatureModuleConfig {
+
+    static {
+        // Registering Bouncy Castle provider..
+        Security.addProvider(new BouncyCastleProvider());
+    }
+
+    @Bean
+    public String signatureModuleVersion() {
+        return "1.0.0-SDitH";
+    }
+}

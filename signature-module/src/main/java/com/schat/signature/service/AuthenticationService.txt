@@ -1,0 +1,103 @@
+package com.schat.signature.service;
+
+import io.jsonwebtoken.Claims;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+public class AuthenticationService {
+    private final SDitHTokenService tokenService;
+
+    // Token expiration times..
+    private static final long ACCESS_TOKEN_EXPIRATION = 15 * 60 * 1000; // 15 minutes
+    private static final long REFRESH_TOKEN_EXPIRATION = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+    @Autowired
+    public AuthenticationService(SDitHTokenService tokenService) {
+        this.tokenService = tokenService;
+    }
+
+    /**
+     * To Generate access token for a user..
+     */
+    public String generateAccessToken(String userId, String username, String... roles) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("userId", userId);
+        claims.put("username", username);
+        claims.put("roles", roles);
+        claims.put("type", "access");
+
+        return tokenService.generateToken(userId, claims, ACCESS_TOKEN_EXPIRATION);
+    }
+
+    /**
+     * To Generate refresh token..
+     */
+    public String generateRefreshToken(String userId) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("type", "refresh");
+
+        return tokenService.generateToken(userId, claims, REFRESH_TOKEN_EXPIRATION);
+    }
+
+    /**
+     * To Validate token and extract user information..
+     */
+    public UserInfo validateToken(String token) {
+        Claims claims = tokenService.verifyToken(token);
+
+        return new UserInfo(
+                claims.getSubject(),
+                (String) claims.get("username"),
+                (String) claims.get("type"),
+                claims.get("roles", String[].class)
+        );
+    }
+
+    /**
+     * To Check if token is valid and not expired..
+     */
+    public boolean isTokenValid(String token) {
+        try {
+            return !tokenService.isTokenExpired(token);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * To Refresh access token using refresh token..
+     */
+    public String refreshAccessToken(String refreshToken, String username, String... roles) {
+        UserInfo userInfo = validateToken(refreshToken);
+
+        if (!"refresh".equals(userInfo.getType())) {
+            throw new IllegalArgumentException("Invalid token type");
+        }
+
+        return generateAccessToken(userInfo.getUserId(), username, roles);
+    }
+
+    public static class UserInfo {
+        private final String userId;
+        private final String username;
+        private final String type;
+        private final String[] roles;
+
+        public UserInfo(String userId, String username, String type, String[] roles) {
+            this.userId = userId;
+            this.username = username;
+            this.type = type;
+            this.roles = roles;
+        }
+
+        // Getters..
+        public String getUserId() { return userId; }
+        public String getUsername() { return username; }
+        public String getType() { return type; }
+        public String[] getRoles() { return roles; }
+    }
+}
