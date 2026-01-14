@@ -28,7 +28,7 @@ export const useAuth = () => {
         email: response.email,
         roles: response.roles,
       });
-      router.push('/chat');
+      router.push('/dashboard');
       return response;
     } catch (err: any) {
       const errorMessage = err.response?.data?.message || 'Login failed';

@@ -1,0 +1,198 @@
+
+> schatclient@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.0
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 1762ms
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 3s (420 modules)
+ ○ Compiling /page ...
+ ✓ Compiled /page in 920ms (483 modules)
+ ○ Compiling /dashboard/page ...
+ ✓ Compiled /dashboard/page in 591ms (533 modules)
+ ○ Compiling /sign-transaction/page ...
+ ✓ Compiled /sign-transaction/page in 861ms (565 modules)
+ ○ Compiling /demo/page ...
+ ✓ Compiled /demo/page in 854ms (766 modules)
+ ○ Compiling /settings/page ...
+ ✓ Compiled /settings/page in 1044ms (784 modules)
+ ○ Compiling /verify-transaction/page ...
+ ✓ Compiled /verify-transaction/page in 744ms (798 modules)
+ ○ Compiling /transactions/page ...
+ ✓ Compiled /transactions/page in 604ms (807 modules)
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/sign-transaction/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/settings/page.tsx
+ ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
+Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/auth/SDitHAnimationOverlay.tsx
+./src/app/settings/page.tsx
+ ✓ Compiled /not-found in 1041ms (732 modules)
+ ✓ Compiled in 626ms (746 modules)

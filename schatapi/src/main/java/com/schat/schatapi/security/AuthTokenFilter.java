@@ -7,26 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.lang.NonNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component  // ← Add this annotation
+// [FIX] Restored @Component for Dependency Injection
+// We will disable auto-registration in WebSecurityConfig
+@Component
 public class AuthTokenFilter extends OncePerRequestFilter {
-    
-    static {
-        System.out.println("========================================");
-        System.out.println("AuthTokenFilter CLASS LOADED");
-        System.out.println("========================================");
-    }
-    
+
     @Autowired
     private JwtUtils jwtUtils;
 
@@ -34,65 +31,66 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private UserDetailsServiceImpl userDetailsService;
 
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
-    
-    public AuthTokenFilter() {
-        System.out.println("========================================");
-        System.out.println("AuthTokenFilter CONSTRUCTOR CALLED");
-        System.out.println("========================================");
+
+    @Override
+    protected boolean shouldNotFilter(@NonNull HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+
+        // Skip JWT filter for public endpoints
+        // [NOTE] Ensure these match your controller paths EXACTLY or use wildcards if
+        // implemented
+        boolean shouldSkip = path.startsWith("/api/auth/register") ||
+                path.startsWith("/api/auth/login") ||
+                path.startsWith("/api/auth/refreshtoken") ||
+                path.startsWith("/api/sdith/demo") ||
+                path.startsWith("/api/test"); // Added /error just in case
+
+        if (shouldSkip) {
+            logger.debug("🔓 Skipping JWT filter for public endpoint: {}", path);
+        }
+
+        return shouldSkip;
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    protected void doFilterInternal(
+            @NonNull HttpServletRequest request,
+            @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain)
             throws ServletException, IOException {
-        
-        System.out.println("========================================");
-        System.out.println("FILTER IS RUNNING!!!");
-        System.out.println("Path: " + request.getRequestURI());
-        System.out.println("========================================");
-        
-        String path = request.getRequestURI();
-        logger.info("====== AuthTokenFilter Processing: {} {} ======", request.getMethod(), path);
-        
+
         try {
             String jwt = parseJwt(request);
-            
+
             if (jwt != null) {
-                logger.info("✓ JWT token extracted, length: {}", jwt.length());
-                
                 if (jwtUtils.validateJwtToken(jwt)) {
                     String username = jwtUtils.getUserNameFromJwtToken(jwt);
-                    logger.info("✓ Valid JWT for user: {}", username);
 
                     UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                    UsernamePasswordAuthenticationToken authentication = 
-                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                            userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                     SecurityContextHolder.getContext().setAuthentication(authentication);
-                    logger.info("✓✓✓ Authentication set for user: {} ✓✓✓", username);
+                    logger.debug("✓ Auth set for user: {}", username);
                 } else {
-                    logger.error("✗ JWT validation failed");
+                    // Invalid token found - Do NOT set context.
+                    // Request remains 'anonymous'. behavior depends on WebSecurityConfig.
+                    logger.warn("✗ Invalid/Expired JWT token found in request to {}", request.getRequestURI());
                 }
-            } else {
-                logger.info("No JWT token in request to: {}", path);
             }
         } catch (Exception e) {
-            logger.error("✗ Cannot set user authentication: {}", e.getMessage(), e);
+            logger.error("✗ Cannot set user authentication: {}", e.getMessage());
         }
 
-        logger.info("====== Continuing filter chain ======");
         filterChain.doFilter(request, response);
     }
 
     private String parseJwt(HttpServletRequest request) {
         String headerAuth = request.getHeader("Authorization");
-        
-        logger.debug("Authorization header: {}", headerAuth != null ? "present" : "null");
 
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
-            String token = headerAuth.substring(7);
-            logger.debug("✓ Token extracted from Bearer header");
-            return token;
+            return headerAuth.substring(7);
         }
 
         return null;

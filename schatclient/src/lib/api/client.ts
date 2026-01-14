@@ -17,49 +17,41 @@ export class ApiClient {
     // Request interceptor to add auth token
     this.client.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
+        const publicEndpoints = [
+          '/api/auth/register',
+          '/api/auth/login'
+        ];
+
+        // [FIX] Use includes() to be safer against full URLs or relative paths
+        const url = config.url || '';
+        const isPublicEndpoint = publicEndpoints.some(endpoint => url.includes(endpoint));
+
         const token = this.getToken();
-        if (token && config.headers) {
-          config.headers.Authorization = `Bearer ${token}`;
+
+        // [FIX] Strict check: ONLY add token if it exists AND it's NOT a public endpoint
+        if (token && !isPublicEndpoint) {
+          if (config.headers) {
+            config.headers.Authorization = `Bearer ${token}`;
+          }
         }
         return config;
       },
-      (error) => Promise.reject(error)
+      (error) => {
+        console.error("DEBUG: Request Interceptor Error:", error);
+        return Promise.reject(error);
+      }
     );
 
-    // Response interceptor for token refresh
+    // Response interceptor
     this.client.interceptors.response.use(
       (response) => response,
-      async (error: AxiosError) => {
-        const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
-
-        if (error.response?.status === 401 && !originalRequest._retry) {
-          originalRequest._retry = true;
-
-          try {
-            const refreshToken = this.getRefreshToken();
-            if (refreshToken) {
-              const response = await this.client.post('/api/auth/refreshtoken', {
-                refreshToken,
-              });
-
-              const { accessToken } = response.data;
-              this.setToken(accessToken);
-
-              if (originalRequest.headers) {
-                originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-              }
-
-              return this.client(originalRequest);
-            }
-          } catch (refreshError) {
-            this.clearTokens();
-            if (typeof window !== 'undefined') {
-              window.location.href = '/login';
-            }
-            return Promise.reject(refreshError);
+      (error) => {
+        if (error.response?.status === 401) {
+          this.clearTokens();
+          if (typeof window !== 'undefined') {
+            window.location.href = '/login';
           }
         }
-
         return Promise.reject(error);
       }
     );
@@ -76,29 +68,15 @@ export class ApiClient {
     return null;
   }
 
-  private getRefreshToken(): string | null {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('refreshToken');
-    }
-    return null;
-  }
-
   setToken(token: string): void {
     if (typeof window !== 'undefined') {
       localStorage.setItem('accessToken', token);
     }
   }
 
-  setRefreshToken(token: string): void {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('refreshToken', token);
-    }
-  }
-
   clearTokens(): void {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
       localStorage.removeItem('user');
     }
   }

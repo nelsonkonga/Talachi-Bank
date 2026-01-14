@@ -1,7 +1,7 @@
 package com.schat.signature.core;
 
 import java.math.BigInteger;
-import java.security.spec.ECPoint;
+import org.bouncycastle.math.ec.ECPoint;
 
 public class SDithPublicKey {
     private final ECPoint publicPoint;
@@ -16,9 +16,20 @@ public class SDithPublicKey {
         this.curveOrder = curveOrder;
     }
 
-    // Getters..
-    public ECPoint getPublicPoint() { return publicPoint; }
-    public int getThreshold() { return threshold; }
-    public int getTotalParties() { return totalParties; }
-    public BigInteger getCurveOrder() { return curveOrder; }
+    // Getters
+    public ECPoint getPublicPoint() {
+        return publicPoint;
+    }
+
+    public int getThreshold() {
+        return threshold;
+    }
+
+    public int getTotalParties() {
+        return totalParties;
+    }
+
+    public BigInteger getCurveOrder() {
+        return curveOrder;
+    }
 }

@@ -4,16 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.schat</groupId>
-		<artifactId>schat</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>com.talachibank</groupId>
+		<artifactId>talachi-bank</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
+	<groupId>com.talachibank</groupId>
 	<artifactId>signature-module</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Signature Module</name>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Talachi Signature Module</name>
 	<packaging>jar</packaging>
-	<description>A signature module proposing signing with SDith.. </description>
+	<description>Post-quantum signature module using SDITH.</description>
 
 	<url/>
 
@@ -92,6 +93,21 @@
 	
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.30</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

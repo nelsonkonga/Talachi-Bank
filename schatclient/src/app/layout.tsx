@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
+const inter = Inter({ subsets: ['latin'] });
+
 export const metadata: Metadata = {
-  title: 'SChat - Secure Chat Application',
-  description: 'A secure chat application with SDith signature module',
+  title: 'Talachi Bank - Secure Post-Quantum Banking',
+  description: 'Next-generation banking with post-quantum security using SDITH signatures.',
 };
 
 export default function RootLayout({
@@ -13,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${inter.className} font-sans antialiased text-slate-900 bg-slate-50`}>{children}</body>
     </html>
   );
 }

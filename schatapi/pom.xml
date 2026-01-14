@@ -4,16 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>com.schat</groupId>
-		<artifactId>schat</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>com.talachibank</groupId>
+		<artifactId>talachi-bank</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>schatapi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>SChatapi</name>
+	<artifactId>talachibank-api</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Talachi Bank API</name>
 	<packaging>jar</packaging>
-	<description>Chat API using an SDith mdule....</description>
+	<description>Secure banking API using SDITH for post-quantum signatures.</description>
 	
 	<url/>
 	
@@ -37,7 +37,7 @@
 	<dependencies>
     <!-- signature-module dependency -->
     <dependency>
-       <groupId>com.schat</groupId>
+       <groupId>com.talachibank</groupId>
        <artifactId>signature-module</artifactId>
        <version>${project.parent.version}</version>
     </dependency>
@@ -59,11 +59,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc</artifactId>
-		</dependency>
-
     <!-- PostgreSQL -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -81,30 +76,15 @@
     <!-- Tests -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
-    <!-- WebSockets -->
-		<dependency>
-    			<groupId>org.springframework.boot</groupId>
-    			<artifactId>spring-boot-starter-websocket</artifactId>
-		</dependency>
 
     <!-- JWT Support -->
     <dependency>
@@ -128,14 +108,20 @@
       <artifactId>jakarta.annotation-api</artifactId>
     </dependency>
 
-    <!-- Redis -->
+	    <!-- Redis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+
+        <!-- Spring Cloud Vault -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-vault-config</artifactId>
+        </dependency>
 	</dependencies>
 
-	<!--build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -148,6 +134,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>1.18.30</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -165,6 +152,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build-->
+	</build>
 
 </project>

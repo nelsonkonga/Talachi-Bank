@@ -1,9 +1,10 @@
 package com.schat.schatapi.service;
 
 import com.schat.schatapi.dto.JwtResponse;
-import com.schat.schatapi.model.RefreshToken;
-import com.schat.schatapi.model.User;
 import com.schat.schatapi.repository.UserRepository;
+import com.schat.schatapi.repository.UserKeyPairRepository;
+import com.schat.schatapi.model.User;
+import com.schat.schatapi.model.UserKeyPair;
 import com.schat.schatapi.security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,7 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
@@ -34,65 +34,149 @@ public class AuthService {
     JwtUtils jwtUtils;
 
     @Autowired
-    RefreshTokenService refreshTokenService;
+    SDitHTokenService sdithTokenService;
+
+    @Autowired
+    UserKeyPairRepository userKeyPairRepository;
+
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(AuthService.class);
 
     public JwtResponse authenticateUser(String username, String password) {
-        Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(username, password));
+        logger.info("Attempting authentication for user: {}", username);
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(username, password));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        String jwt = jwtUtils.generateJwtToken(userDetails.getUsername());
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            String jwt = jwtUtils.generateJwtToken(userDetails.getUsername());
+            logger.info("Authentication successful for user: {}", username);
 
-        List<String> roles = userDetails.getAuthorities().stream()
-            .map(item -> item.getAuthority())
-            .collect(Collectors.toList());
+            List<String> roles = userDetails.getAuthorities().stream()
+                    .map(item -> item.getAuthority())
+                    .collect(Collectors.toList());
 
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
-
-        return new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), 
-                             userDetails.getEmail(), roles, refreshToken.getToken());
+            logger.info("Token generated successfully for user: {}", username);
+            return new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(),
+                    userDetails.getEmail(), roles, null);
+        } catch (Exception e) {
+            logger.error("Authentication failed for user: {} - Reason: {}", username, e.getMessage());
+            e.printStackTrace(); // Print full stack trace for debugging
+            throw e;
+        }
     }
 
+    @Autowired
+    com.schat.schatapi.repository.RoleRepository roleRepository;
+
+    /**
+     * Register a new user with the specified username, email, password, and roles.
+     * 
+     * <p>
+     * This method:
+     * <ul>
+     * <li>Validates that username and email are not already taken</li>
+     * <li>Creates a new user account with encoded password</li>
+     * <li>Assigns roles based on the provided role strings</li>
+     * <li>Assigns a party index for threshold signing (round-robin: 1-3)</li>
+     * <li>Persists the user to the database</li>
+     * </ul>
+     * 
+     * <p>
+     * <b>Role Assignment Logic:</b>
+     * <ul>
+     * <li>If no roles provided (null): assigns ROLE_USER by default</li>
+     * <li>Role string "admin": assigns ROLE_ADMIN</li>
+     * <li>Role string "mod": assigns ROLE_MODERATOR</li>
+     * <li>Any other string: assigns ROLE_USER</li>
+     * </ul>
+     * 
+     * @param username The desired username (must be unique)
+     * @param email    The user's email address (must be unique)
+     * @param password The user's password (will be encoded with BCrypt)
+     * @param strRoles Set of role strings ("admin", "mod", or any other value
+     *                 defaults to user role)
+     * @return The created and persisted User entity
+     * @throws RuntimeException if username or email already exists, or if required
+     *                          roles are not found in DB
+     */
     public User registerUser(String username, String email, String password, Set<String> strRoles) {
+        logger.info("Attempting registration for user: {}, email: {}", username, email);
         if (userRepository.existsByUsername(username)) {
+            logger.warn("Registration failed: Username {} is already taken!", username);
             throw new RuntimeException("❌Error: Username is already taken!");
         }
 
         if (userRepository.existsByEmail(email)) {
+            logger.warn("Registration failed: Email {} is already in use!", email);
             throw new RuntimeException("❌Error: Email is already in use!");
         }
 
         // Creating new user's account..
         User user = new User(username, email, encoder.encode(password));
 
-        // Assigning party index for threshold signing (round-robin assignment)..
-        Long userCount = userRepository.count();
-        int partyIndex = (userCount.intValue() % 3) + 1; // Assuming 3 parties..
-        user.setPartyIndex(partyIndex);
+        Set<com.schat.schatapi.model.Role> roles = new HashSet<>();
+
+        if (strRoles == null) {
+            com.schat.schatapi.model.Role userRole = roleRepository.findByName(com.schat.schatapi.model.ERole.ROLE_USER)
+                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+            roles.add(userRole);
+        } else {
+            strRoles.forEach(role -> {
+                switch (role) {
+                    case "admin":
+                        com.schat.schatapi.model.Role adminRole = roleRepository
+                                .findByName(com.schat.schatapi.model.ERole.ROLE_ADMIN)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(adminRole);
+                        break;
+                    case "mod":
+                        com.schat.schatapi.model.Role modRole = roleRepository
+                                .findByName(com.schat.schatapi.model.ERole.ROLE_MODERATOR)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(modRole);
+                        break;
+                    default:
+                        com.schat.schatapi.model.Role userRole = roleRepository
+                                .findByName(com.schat.schatapi.model.ERole.ROLE_USER)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(userRole);
+                }
+            });
+        }
+
+        user.setRoles(roles);
 
         userRepository.save(user);
+
+        // Generate SDITH Key Pair (Level L1 - 128 bit)
+        try {
+            com.schat.signature.core.SDitHCodeBasedKeyPair sdithKeyPair = sdithTokenService
+                    .generateKeyPair(com.schat.signature.core.SDitHParameters.LEVEL_L1);
+            UserKeyPair keyPairEntity = UserKeyPair.builder()
+                    .user(user)
+                    .publicKey(sdithKeyPair.getPublicKey().getPublicKey())
+                    .privateKeyEncrypted(sdithKeyPair.getPrivateKey().getSecretKey()) // In real app, encrypt this with
+                                                                                      // user password hash
+                    .securityLevel(128)
+                    .status(UserKeyPair.KeyStatus.ACTIVE)
+                    .build();
+
+            if (keyPairEntity != null) {
+                userKeyPairRepository.save(keyPairEntity);
+                logger.info("SDitH Key Pair generated and saved for user: {}", username);
+            }
+        } catch (Exception e) {
+            logger.error("Failed to generate SDitH keys for user: {}", username, e);
+        }
+
+        logger.info("User registered successfully: {}", username);
         return user;
     }
 
-    public JwtResponse refreshToken(String requestRefreshToken) {
-        return refreshTokenService.findByToken(requestRefreshToken)
-            .map(refreshTokenService::verifyExpiration)
-            .map(RefreshToken::getUser)
-            .map(user -> {
-                String token = jwtUtils.generateJwtToken(user.getUsername());
-                return new JwtResponse(token, user.getId(), user.getUsername(),
-                                     user.getEmail(), List.of("ROLE_USER"),
-                                     requestRefreshToken);
-            })
-            .orElseThrow(() -> new RuntimeException("Refresh token is not in database!"));
-    }
-
     public void logoutUser() {
-        UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext()
-            .getAuthentication().getPrincipal();
-        Long userId = userDetails.getId();
-        refreshTokenService.deleteByUserId(userId);
+        // Simple logout (client clears JWT)
+        SecurityContextHolder.clearContext();
     }
 }
