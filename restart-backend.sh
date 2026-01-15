@@ -22,5 +22,6 @@ else
   echo "✅ Port $PORT is already free."
 fi
 
-echo "🚀 Starting Spring Boot Backend..."
-mvn -pl schatapi spring-boot:run -DskipTests
+echo "🚀 Starting Spring Boot Backend with large header support..."
+export SERVER_MAX_HTTP_HEADER_SIZE=1048576
+mvn -pl talachibank-api spring-boot:run -DskipTests

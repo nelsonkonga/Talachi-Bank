@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # =========================================
-# SChat System - Unified Startup Script
+# TalachiBank System - Unified Startup Script
 # =========================================
-# This script starts all components of the SChat system:
+# This script starts all components of the TalachiBank system:
 # 1. PostgreSQL database
-# 2. Spring Boot backend (schatapi)
-# 3. Next.js frontend (schatclient)
+# 2. Spring Boot backend (talachibank-api)
+# 3. Next.js frontend (talachibank-client)
 #
 # Usage: ./start-all.sh
 # Stop:  Press Ctrl+C to stop all services gracefully
@@ -66,8 +66,8 @@ cleanup_ports() {
         echo ""
     fi
     
-    # Clean up any leftover schatapi or next dev processes
-    pkill -f "schatapi" 2>/dev/null || true
+    # Clean up any leftover talachibank-api or next dev processes
+    pkill -f "talachibank-api" 2>/dev/null || true
     pkill -f "next dev" 2>/dev/null || true
     
     echo -e "${GREEN}✓ Ports cleaned and ready${NC}"
@@ -114,7 +114,7 @@ shutdown() {
 trap shutdown SIGINT SIGTERM
 
 echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║    SChat System Startup Script        ║${NC}"
+echo -e "${BLUE}║    TalachiBank System Startup Script        ║${NC}"
 echo -e "${BLUE}║    Press Ctrl+C to stop all services  ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════╝${NC}"
 echo ""
@@ -150,10 +150,10 @@ sleep 2
 # Check if database exists
 # Check if database is accessible
 export PGPASSWORD=Ngousso00
-if psql -h localhost -U schatapiuser -d schatdb -c "SELECT 1" >/dev/null 2>&1; then
-    echo -e "${GREEN}  ✓ Database 'schatdb' is accessible${NC}"
+if psql -h localhost -U talachibankuser -d talachibankdb -c "SELECT 1" >/dev/null 2>&1; then
+    echo -e "${GREEN}  ✓ Database 'talachibankdb' is accessible${NC}"
 else
-    echo -e "${YELLOW}  ⚠ Database 'schatdb' check failed (might just need password or hasn't proved accessible yet). Proceeding...${NC}"
+    echo -e "${YELLOW}  ⚠ Database 'talachibankdb' check failed (might just need password or hasn't proved accessible yet). Proceeding...${NC}"
 fi
 unset PGPASSWORD
 
@@ -165,7 +165,7 @@ echo ""
 echo -e "${YELLOW}[2/4]${NC} Building Spring Boot backend..."
 
 cd "$PROJECT_DIR"
-if [ ! -d "schatapi/target" ]; then
+if [ ! -d "talachibank-api/target" ]; then
     echo -e "${YELLOW}  → Compiling backend...${NC}"
     mvn clean package -DskipTests > "$LOG_DIR/backend-build.log" 2>&1
     echo -e "${GREEN}  ✓ Backend compiled successfully${NC}"
@@ -181,7 +181,7 @@ echo ""
 echo -e "${YELLOW}[3/4]${NC} Starting Spring Boot backend..."
 
 cd "$PROJECT_DIR"
-mvn spring-boot:run -pl schatapi > "$LOG_DIR/backend.log" 2>&1 &
+mvn spring-boot:run -pl talachibank-api > "$LOG_DIR/backend.log" 2>&1 &
 BACKEND_PID=$!
 echo $BACKEND_PID > "$LOG_DIR/backend.pid"
 
@@ -210,7 +210,7 @@ echo ""
 # =========================================
 echo -e "${YELLOW}[4/4]${NC} Starting Next.js frontend..."
 
-cd "$PROJECT_DIR/schatclient"
+cd "$PROJECT_DIR/talachibank-client"
 
 # Install dependencies if needed
 if [ ! -d "node_modules" ]; then

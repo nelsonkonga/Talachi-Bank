@@ -1,4 +1,4 @@
-# 🚀 SChat - Guide de Démarrage Rapide
+# 🚀 TalachiBank - Guide de Démarrage Rapide
 
 ## Démarrage en Une Commande
 
@@ -57,6 +57,32 @@ Le script interceptera le signal et :
 
 > **Note** : Le script `stop-all.sh` existe toujours comme méthode alternative si vous lancez les services en arrière-plan manuellement.
 
+## 🔑 Identifiants par Défaut
+
+Le système est pré-configuré avec un compte administrateur lors du premier démarrage :
+
+- **Nom d'utilisateur** : `admin`
+- **Mot de passe** : `Admin123!`
+
+Ce compte possède un solde initial de 100 000,00 TB et une paire de clés SDitH générée.
+
+---
+
+## 🏦 Fonctionnalités Bancaires
+
+Le système Talachi Bank inclut désormais :
+
+### 1. Gestion du Solde
+- **Recharge** : Les utilisateurs peuvent créditer leur compte via la page **Recharge Balance** (`/account/recharge`).
+- **Nouveaux Comptes** : Tout nouvel utilisateur enregistré commence avec un solde de **0.00 TB**.
+
+### 2. Sécurité Post-Quantique
+- **SDitH v1.1** : Toutes les transactions sont signées à l'aide de l'algorithme "Signature from MPC-in-the-Head".
+- **Vérification** : Utilisez le terminal de vérification (`/verify-transaction`) pour valider l'intégrité d'une transaction.
+
+### 3. Paramètres de Sécurité
+- **Changement de Mot de Passe** : Accessible via `/settings/security`. Les anciens mots de passe sont validés avant toute modification.
+
 ---
 
 ## URLs d'Accès
@@ -74,9 +100,9 @@ Une fois le système démarré :
 ### 1. PostgreSQL
 Le script vérifie automatiquement si PostgreSQL est démarré. Si ce n'est pas le cas, il tente de le démarrer automatiquement.
 
-**Configuration requise** (dans `schatapi/src/main/resources/application.properties`) :
-- Database: `schatdb`
-- Username: `schatapiuser`
+**Configuration requise** (dans `talachibank-api/src/main/resources/application.properties`) :
+- Database: `talachibankdb`
+- Username: `talachibankuser`
 - Password: `Ngousso00`
 - Port: `5432`
 
@@ -85,9 +111,9 @@ Le script vérifie automatiquement si PostgreSQL est démarré. Si ce n'est pas 
 sudo -u postgres psql
 ```
 ```sql
-CREATE DATABASE schatdb;
-CREATE USER schatapiuser WITH PASSWORD 'Ngousso00';
-GRANT ALL PRIVILEGES ON DATABASE schatdb TO schatapiuser;
+CREATE DATABASE talachibankdb;
+CREATE USER talachibankuser WITH PASSWORD 'Ngousso00';
+GRANT ALL PRIVILEGES ON DATABASE talachibankdb TO talachibankuser;
 \q
 ```
 
@@ -126,13 +152,13 @@ sudo systemctl start postgresql
 
 **2. Backend**
 ```bash
-cd /home/Wallys/projets/schatapi
-mvn spring-boot:run -pl schatapi
+cd /home/Wallys/projets/talachibank-api
+mvn spring-boot:run -pl talachibank-api
 ```
 
 **3. Frontend (dans un nouveau terminal)**
 ```bash
-cd /home/Wallys/projets/schatapi/schatclient
+cd /home/Wallys/projets/talachibank-api/talachibank-client
 npm install  # Première fois seulement
 npm run dev
 ```

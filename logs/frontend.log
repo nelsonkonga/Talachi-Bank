@@ -1,198 +1,46 @@
 
-> schatclient@0.1.0 dev
+> talachibank-client@0.1.0 dev
 > next dev
 
    ▲ Next.js 14.0.0
    - Local:        http://localhost:3000
 
- ✓ Ready in 1762ms
+ ✓ Ready in 12s
  ○ Compiling /not-found ...
- ✓ Compiled /not-found in 3s (420 modules)
+ ✓ Compiled /not-found in 833ms (406 modules)
  ○ Compiling /page ...
- ✓ Compiled /page in 920ms (483 modules)
+ ✓ Compiled /page in 986ms (483 modules)
+ ○ Compiling /favicon.ico/route ...
+ ✓ Compiled /favicon.ico/route in 2.3s (284 modules)
+ ○ Compiling /src/middleware ...
+ ✓ Compiled /src/middleware in 1347ms (56 modules)
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
  ○ Compiling /dashboard/page ...
- ✓ Compiled /dashboard/page in 591ms (533 modules)
- ○ Compiling /sign-transaction/page ...
- ✓ Compiled /sign-transaction/page in 861ms (565 modules)
- ○ Compiling /demo/page ...
- ✓ Compiled /demo/page in 854ms (766 modules)
- ○ Compiling /settings/page ...
- ✓ Compiled /settings/page in 1044ms (784 modules)
+ ✓ Compiled /dashboard/page in 3.8s (771 modules)
+DEBUG: Middleware - Path: /verify-transaction, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
  ○ Compiling /verify-transaction/page ...
- ✓ Compiled /verify-transaction/page in 744ms (798 modules)
- ○ Compiling /transactions/page ...
- ✓ Compiled /transactions/page in 604ms (807 modules)
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ○ Compiling /_error ...
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/sign-transaction/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/settings/page.tsx
- ⨯ ./src/components/auth/SDitHAnimationOverlay.tsx
-Error: Failed to read source code from /home/Wallys/projets/schatapi/schatclient/src/components/auth/SDitHAnimationOverlay.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-
-Import trace for requested module:
-./src/components/auth/SDitHAnimationOverlay.tsx
-./src/app/settings/page.tsx
- ✓ Compiled /not-found in 1041ms (732 modules)
- ✓ Compiled in 626ms (746 modules)
+ ✓ Compiled /verify-transaction/page in 561ms (795 modules)
+DEBUG: Middleware - Path: /verify-transaction, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /account/recharge, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+ ✓ Compiled /account/recharge/page in 329ms (805 modules)
+DEBUG: Middleware - Path: /account/recharge, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /login, HasToken: false, Header: null
+ ✓ Compiled /login/page in 448ms (818 modules)
+DEBUG: Middleware - Path: /login, HasToken: false, Header: null
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc2ODQ0MzYxOSwiZXhwIjoxNzY4NDQ3MjE5fQ.B7EgNAwB6aWiBJbuvfp7i4kZ5mLyu2aBoGF_crd9v8N4032y1LGNwDpCO_lyKiKqr0OyXmntKRYxSdXO4qA6Dw
+DEBUG: Middleware - Path: /account/recharge, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc2ODQzNjg3MywiZXhwIjoxNzY4NDQwNDczfQ.JCc8GhXZxQ2QCupC3Ea_YZhbYg8oGxFn5iZVBxbvR7JoeYcbef4MQH2keKZU-E5_f60iniyHbGx9cuZlgUvX-w
+DEBUG: Middleware - Path: /login, HasToken: false, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b
+DEBUG: Middleware - Path: /login, HasToken: false, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJpYXQiOjE3Njg0NDM3NTUsImV4cCI6MTc2ODQ0NzM1NX0.DuDUrAlg-mxWEIry7pfsgm2NfpGSof0izfqpuId-mjqiDnRgCP887dgkwqDBD6hvMgAPCuhkDdEm3xuRz2iuIg
+DEBUG: Middleware - Path: /sign-transaction, HasToken: true, Header: token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc2ODQ0MzYxOSwiZXhwIjoxNzY4NDQ3MjE5fQ.B7EgNAwB6aWiBJbuvfp7i4kZ5mLyu2aBoGF_crd9v8N4032y1LGNwDpCO_lyKiKqr0OyXmntKRYxSdXO4qA6Dw
+ ○ Compiling /sign-transaction/page ...
+ ✓ Compiled /sign-transaction/page in 640ms (797 modules)
+DEBUG: Middleware - Path: /sign-transaction, HasToken: true, Header: token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc2ODQ0MzYxOSwiZXhwIjoxNzY4NDQ3MjE5fQ.B7EgNAwB6aWiBJbuvfp7i4kZ5mLyu2aBoGF_crd9v8N4032y1LGNwDpCO_lyKiKqr0OyXmntKRYxSdXO4qA6Dw
+DEBUG: Middleware - Path: /login, HasToken: false, Header: null
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJpYXQiOjE3Njg0NDM3NTUsImV4cCI6MTc2ODQ0NzM1NX0.DuDUrAlg-mxWEIry7pfsgm2NfpGSof0izfqpuId-mjqiDnRgCP887dgkwqDBD6hvMgAPCuhkDdEm3xuRz2iuIg
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: username-localhost-8888="2|1:0|10:1767794240|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICIxNWUxNzM3Mjc1NDA0NzgxYTJiNDc2M2M2NTBiZDU2NiIsICJuYW1lIjogIkFub255bW91cyBBcmNoZSIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIEFyY2hlIiwgImluaXRpYWxzIjogIkFBIiwgImNvbG9yIjogbnVsbH0=|7a2d207da9a8d530977b099a317821ee3939ff3635a9d296c7221ccfa3137ac4"; _xsrf=2|38bdde6a|4a336b103091f223e7bcae47315426f3|1767794240; username-localhost-8892=2|1:0|10:1768017193|23:username-localhost-8892|188:eyJ1c2VybmFtZSI6ICI4NzdmMjJkOTk3Njk0ZGIxYTk0MDE5OWZkNjcwMThjOSIsICJuYW1lIjogIkFub255bW91cyBFcnNhIiwgImRpc3BsYXlfbmFtZSI6ICJBbm9ueW1vdXMgRXJzYSIsICJpbml0aWFscyI6ICJBRSIsICJjb2xvciI6IG51bGx9|2ba2fb89abcbac35ca02a1b98de624ca11a4fef11efdfa0549f65a287113fa9b; token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJpYXQiOjE3Njg0NDM3NTUsImV4cCI6MTc2ODQ0NzM1NX0.DuDUrAlg-mxWEIry7pfsgm2NfpGSof0izfqpuId-mjqiDnRgCP887dgkwqDBD6hvMgAPCuhkDdEm3xuRz2iuIg
+DEBUG: Middleware - Path: /dashboard, HasToken: true, Header: token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc2ODQ0MzYxOSwiZXhwIjoxNzY4NDQ3MjE5fQ.B7EgNAwB6aWiBJbuvfp7i4kZ5mLyu2aBoGF_crd9v8N4032y1LGNwDpCO_lyKiKqr0OyXmntKRYxSdXO4qA6Dw

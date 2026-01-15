@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # =========================================
-# SChat System - Shutdown Script
+# TalachiBank System - Shutdown Script
 # =========================================
-# This script stops all components of the SChat system
+# This script stops all components of the TalachiBank system
 
 set -e
 
@@ -18,7 +18,7 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="$PROJECT_DIR/logs"
 
 echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║    SChat System Shutdown Script       ║${NC}"
+echo -e "${BLUE}║    TalachiBank System Shutdown Script       ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -65,7 +65,7 @@ if [ -f "$LOG_DIR/backend.pid" ]; then
     fi
 else
     # Fallback: kill by name
-    pkill -f "schatapi" 2>/dev/null && echo -e "${GREEN}  ✓ Backend stopped${NC}" || echo -e "${YELLOW}  → No backend process found${NC}"
+    pkill -f "talachibank-api" 2>/dev/null && echo -e "${GREEN}  ✓ Backend stopped${NC}" || echo -e "${YELLOW}  → No backend process found${NC}"
 fi
 
 echo ""

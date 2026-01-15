@@ -1,7 +1,7 @@
 #!/bin/bash
-# Script to view SCHAT database content
+# Script to view TALACHIBANK database content
 
-echo "=== SCHAT Database Viewer ==="
+echo "=== TALACHIBANK Database Viewer ==="
 echo "Connecting to database..."
 
 # Check if psql is available
@@ -13,12 +13,12 @@ fi
 # List Users
 echo ""
 echo "--- Registered Users ---"
-psql -h localhost -U schatapiuser -d schatdb -c "SELECT id, username, email FROM users ORDER BY id;"
+psql -h localhost -U talachibankuser -d talachibankdb -c "SELECT id, username, email FROM users ORDER BY id;"
 
 # List Refresh Tokens
 echo ""
 echo "--- Active Refresh Tokens ---"
-psql -h localhost -U schatapiuser -d schatdb -c "SELECT id, user_id, expiry_date, token FROM refresh_tokens;"
+psql -h localhost -U talachibankuser -d talachibankdb -c "SELECT id, user_id, expiry_date, token FROM refresh_tokens;"
 
 echo ""
 echo "Done."

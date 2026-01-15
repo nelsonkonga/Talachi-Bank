@@ -33,7 +33,7 @@ echo ""
 echo "🔍 PHASE 4: Database Connection Check..."
 # Simple connection check using psql if available, assuming default user/pass from properties
 export PGPASSWORD=Ngousso00
-if psql -h localhost -U schatapiuser -d schatdb -c "\l" >/dev/null 2>&1; then
+if psql -h localhost -U talachibank-apiuser -d schatdb -c "\l" >/dev/null 2>&1; then
     echo "✅ Database connection SUCCESSFUL."
 else
     echo "❌ Database connection FAILED. Check credentials or if database 'schatdb' exists."

@@ -15,7 +15,7 @@ def test_register():
         response = requests.post(f"{BASE_URL}/register", json=payload)
         if response.status_code == 200:
             print("✅ Registration Successful")
-            return true
+            return True
         elif response.status_code == 400 and "already taken" in response.text:
              print("⚠️  User already exists (Expected if run multiple times)")
              return True

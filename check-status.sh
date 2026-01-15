@@ -11,7 +11,7 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo "🔍 Vérification rapide du système SChat..."
+echo "🔍 Vérification rapide du système Talachi Bank..."
 echo ""
 
 # Check PostgreSQL

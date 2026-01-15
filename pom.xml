@@ -20,7 +20,7 @@
 
     <modules>
         <module>signature-module</module>
-        <module>schatapi</module>
+        <module>talachibank-api</module>
     </modules>
 
     <properties>
